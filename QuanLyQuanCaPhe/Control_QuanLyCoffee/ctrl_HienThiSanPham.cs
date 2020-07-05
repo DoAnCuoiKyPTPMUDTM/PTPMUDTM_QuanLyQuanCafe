@@ -12,6 +12,7 @@ namespace Control_QuanLyCoffee
 {
     public partial class ctrl_HienThiSanPham : UserControl
     {
+        public string masp;   
         public ctrl_HienThiSanPham()
         {
             InitializeComponent();
@@ -29,18 +30,18 @@ namespace Control_QuanLyCoffee
             lbTenSanPham.MouseLeave += ctrl_HienThiSanPham_MouseLeave;
             pictureBox1.MouseEnter += ctrl_HienThiSanPham_MouseEnter;
             pictureBox1.MouseLeave += ctrl_HienThiSanPham_MouseLeave;
-            this.BackColor = default(Color);
+            this.BackColor = Color.FromArgb(204,0,0);
             
         }
 
         void ctrl_HienThiSanPham_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.Aqua;
+            this.BackColor = Color.FromArgb(242,242,242);
         }
 
         void ctrl_HienThiSanPham_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = default(Color);
+            this.BackColor = Color.FromArgb(204, 0, 0);
         }
 
         void ctrl_HienThiSanPham_MouseHover(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace Control_QuanLyCoffee
                if( count == 3)
                {
                    newgia = String.Concat(",", newgia);
-                   count = 1;
+                   count = 0;
                }
                newgia = String.Concat(gia[i], newgia);
                count++;

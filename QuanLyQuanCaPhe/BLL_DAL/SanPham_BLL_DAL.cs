@@ -17,11 +17,12 @@ namespace BLL_DAL
         public List<QL_SanPham> laySanPham(string maloai)
         {
             return qlcf.QL_SanPhams.Where(t => t.MaLoaiSP == maloai).ToList<QL_SanPham>();
-        }
-        
-        public IQueryable layLoaiSanPham()
+        }        
+
+
+        public List<QL_LoaiSanPham> LayLoaiSanPham()
         {
-            return qlcf.QL_LoaiSanPhams.Select(t => t);
+            return qlcf.QL_LoaiSanPhams.Select(t => t).ToList<QL_LoaiSanPham>();
         }
     }
 }

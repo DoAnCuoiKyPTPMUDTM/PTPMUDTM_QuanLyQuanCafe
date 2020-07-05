@@ -13,17 +13,28 @@ namespace GUI
 {
     public partial class Form1 : Form
     {
-        SanPham_BLL_DAL bllsp = new SanPham_BLL_DAL();
+        #region Properties
+
+          SanPham_BLL_DAL bllsp = new SanPham_BLL_DAL();
+          ctrl_LoaiSanPham currentLoai = new ctrl_LoaiSanPham();
+          List<QL_LoaiSanPham> lstLoai;
+          List<QL_SanPham> lstsp;
+          List<QL_ChiTietHoaDon> lstChitiet;
+        #endregion
+        
         public Form1()
         {
             InitializeComponent();
-            capnhapComboboxLoai();
+            hienthiLoaiSanPham();
+            HienThiSanPham(lstLoai[0].MaLoaiSP);
+            this.BackColor = Color.White;
+           
         }
         public void HienThiSanPham(string maloai)
         {
             pnHienThiSanPham.Controls.Clear();
             // lấy danh sách sản phẩm theo loại
-            List<QL_SanPham> lst = bllsp.laySanPham(maloai);
+            lstsp = bllsp.laySanPham(maloai);
 
             int top = 0;
             int left = 0;
@@ -31,65 +42,111 @@ namespace GUI
             int row = 0;
             ctrl_HienThiSanPham lasteditem = new ctrl_HienThiSanPham();
 
-            for (int i = 0; i < lst.Count; i++)
-            {                
-                if(row == 10)
+            for (int i = 0; i < lstsp.Count; i++)
+            {
+                if (row == 10)
                 {
                     templeft = lasteditem.Width;
                     row = 0;
                 }
-                ctrl_HienThiSanPham item = new ctrl_HienThiSanPham() { 
-                    Location = new Point(templeft,top)
+                ctrl_HienThiSanPham item = new ctrl_HienThiSanPham()
+                {
+                    Location = new Point(templeft, top)
                 };
-                item.insertData(lst[i].TenSanPham,(int)lst[i].Gia,Image.FromFile(@"..\..\..\GUI\img\coffe.png"));
-
+                item.insertData(lstsp[i].TenSanPham, (int)lstsp[i].Gia, Image.FromFile(@"..\..\..\GUI\img\coffe.png"));
+                item.masp = lstsp[i].MaSP;
                 row++;
                 top += lasteditem.Height;
                 pnHienThiSanPham.Controls.Add(item);
 
             }
 
-            //for (int i = 1; i <= lst.Count; i += 2)
-            //{
-            //    templeft = left;
-            //    for (int j = i; j <= i+1; j++)
-            //    {
-            //        // dieu chinh vi tri
-            //        ctrl_HienThiSanPham item = new ctrl_HienThiSanPham() {
-            //            Location = new Point(templeft, top)
-            //        };
-            //        lasteditem = item;
-            //        templeft += item.Width; 
-
-            //        // Insert Du Lieu
-            //        string tensp = lst[j].TenSanPham;
-            //        int gia = (int)lst[j].Gia;                    
-            //        item.insertData(tensp,gia, Image.FromFile(@"..\..\..\GUI\img\coffe.png"));
-
-            //        pnHienThiSanPham.Controls.Add(item);
-                    
-                    
-            //    }
-            //    templeft = left;
-            //    top += lasteditem.Height;
-                
-            //}
             pnHienThiSanPham.AutoSize = true;
         }
+        //public void HienThiSanPham()
+        //{
+        //    pnHienThiSanPham.Controls.Clear();
+        //    // lấy danh sách sản phẩm theo loại
+          
+        //    int top = 0;
+        //    int left = 0;
+        //    int templeft = 0;
+        //    int row = 0;
+        //    ctrl_HienThiSanPham lasteditem = new ctrl_HienThiSanPham();
 
+        //    for (int i = 0; i < 20; i++)
+        //    {
+        //        if (row == 5)
+        //        {
+        //            templeft += lasteditem.Width;
+        //            row = 0;
+        //            top = 0;
+        //        }
+        //        ctrl_HienThiSanPham item = new ctrl_HienThiSanPham()
+        //        {
+        //            Location = new Point(templeft, top)
+        //        };
+        //        item.insertData("Sản Phẩm " + i, 10000000, Image.FromFile(@"..\..\..\GUI\img\coffe.png"));
+
+        //        row++;
+        //        top += lasteditem.Height;
+        //        pnHienThiSanPham.Controls.Add(item);
+
+        //    }
+
+        //    pnHienThiSanPham.AutoSize = true;
+        //}
         
-        public void capnhapComboboxLoai()
+     
+
+        public void hienthiLoaiSanPham()
         {
-            comboBox1.DataSource = bllsp.layLoaiSanPham();
-            comboBox1.DisplayMember = "TenLoai";
-            comboBox1.ValueMember = "MaLoaiSP";
+            int top = 0;
+            lstLoai = bllsp.LayLoaiSanPham();
+            for (int i = 0; i < lstLoai.Count; i++)
+            {
+                ctrl_LoaiSanPham item = new ctrl_LoaiSanPham() { 
+                   Location = new Point(0,top)
+                
+                };
+
+                item.insertData(lstLoai[i].MaLoaiSP, lstLoai[i].TenLoai);
+                item.Click += item_Click;
+                
+                
+                top += item.Height;
+                pnLoai.Controls.Add(item);
+            }
+            pnLoai.AutoSize = true;
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        void lbTenLoai_Click(object sender, EventArgs e)
         {
-            HienThiSanPham(comboBox1.SelectedValue.ToString());
+            Label lb = (Label)sender;
+            currentLoai.BackColor = Color.Yellow;
+            currentLoai.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+            this.currentLoai.turnNormal();            
         }
+
+        void item_Click(object sender, EventArgs e)
+        {
+            ctrl_LoaiSanPham item = (ctrl_LoaiSanPham)sender;            
+            item.BackColor = Color.Aqua;
+            item.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+            this.currentLoai.turnNormal();
+            this.currentLoai = item;
+            HienThiSanPham(item.maloai);
+        }
+
+
+        public void insertHoaDon()
+        {
+            ctrl_HoaDon hd = new ctrl_HoaDon();
+            
+
+        }
+       
        
     }
 }

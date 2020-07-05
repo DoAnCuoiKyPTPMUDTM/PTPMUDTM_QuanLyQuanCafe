@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BLL_DAL">
+      <HintPath>..\BLL_DAL\bin\Debug\BLL_DAL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -47,11 +50,29 @@
     <Compile Include="ctrl_HienThiSanPham.Designer.cs">
       <DependentUpon>ctrl_HienThiSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="ctrl_HoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrl_HoaDon.Designer.cs">
+      <DependentUpon>ctrl_HoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_LoaiSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrl_LoaiSanPham.Designer.cs">
+      <DependentUpon>ctrl_LoaiSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ctrl_HienThiSanPham.resx">
       <DependentUpon>ctrl_HienThiSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrl_HoaDon.resx">
+      <DependentUpon>ctrl_HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrl_LoaiSanPham.resx">
+      <DependentUpon>ctrl_LoaiSanPham.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
