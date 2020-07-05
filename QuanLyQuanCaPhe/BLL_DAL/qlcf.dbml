@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DAMN_QuanLyCaPhe" Class="qlcfDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-87LUJO1\SQLEXPRESS;Initial Catalog=DAMN_QuanLyCaPhe;Integrated Security=True" SettingsObjectName="BLL_DAL.Properties.Settings" SettingsPropertyName="DAMN_QuanLyCaPheConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.QL_SanPham" Member="QL_SanPhams">
+    <Type Name="QL_SanPham">
+      <Column Name="MaSP" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenSanPham" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TinhTrang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaLoaiSP" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="QL_LoaiSanPham_QL_SanPham" Member="QL_LoaiSanPham" ThisKey="MaLoaiSP" OtherKey="MaLoaiSP" Type="QL_LoaiSanPham" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QL_LoaiSanPham" Member="QL_LoaiSanPhams">
+    <Type Name="QL_LoaiSanPham">
+      <Column Name="MaLoaiSP" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="QL_LoaiSanPham_QL_SanPham" Member="QL_SanPhams" ThisKey="MaLoaiSP" OtherKey="MaLoaiSP" Type="QL_SanPham" />
+    </Type>
+  </Table>
+</Database>

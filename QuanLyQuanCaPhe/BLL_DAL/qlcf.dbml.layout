@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="qlcf">
+  <DataContextMoniker Name="/qlcfDataContext" />
+  <nestedChildShapes>
+    <classShape Id="88cf3708-c644-4f95-84a0-059c11032ccb" absoluteBounds="1, 1.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/qlcfDataContext/QL_SanPham" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f3908f5-4b37-4ab7-abc5-908af7ad8ba7" absoluteBounds="1.0150000000000001, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ff86b0ec-554b-4b03-82d0-98d1132bf45f" absoluteBounds="3.375, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/qlcfDataContext/QL_LoaiSanPham" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0db6591f-7760-4e9d-8e58-c08c35d79b9b" absoluteBounds="3.39, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 1.88064697265625); (3 : 1.88064697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/qlcfDataContext/QL_LoaiSanPham/QL_LoaiSanPham_QL_SanPham" />
+      <nodes>
+        <classShapeMoniker Id="ff86b0ec-554b-4b03-82d0-98d1132bf45f" />
+        <classShapeMoniker Id="88cf3708-c644-4f95-84a0-059c11032ccb" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
