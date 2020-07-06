@@ -12,37 +12,68 @@ namespace Control_QuanLyCoffee
 {
     public partial class ctrl_HoaDon : UserControl
     {
+        #region properties
+        private int soluong;
+
+        public int SoLuong
+        {
+            get { return soluong; }
+            set { soluong = value; }
+        }
+
+        private int dongia;
+
+        public int Dongia
+        {
+            get { return dongia; }
+            set { dongia = value; }
+        }
+
+        private int tongTien;
+
+        public int TongTien
+        {
+            get { return tongTien; }
+            set { tongTien = value; }
+        }
+        
+        private ChucNang cn = new ChucNang();
+        #endregion
+
+        #region Initial
+        
+        #endregion
+        
+
+        #region method
+        
+        #endregion
         public ctrl_HoaDon()
         {
             InitializeComponent();
         }
 
+
+        public void plusMore()
+        {
+            soluong++;
+            lbSoLuong.Text = soluong.ToString();
+            lbTongCong.Text = cn.convertGia(soluong * dongia);
+            this.TongTien = soluong * dongia;
+        }
+
         public void insertData(string masp, string tensp, int soluong, int dongia)
         {
+            this.soluong = soluong;
+            this.dongia = dongia;
+            this.TongTien = soluong * dongia;
             lbMaSP.Text = masp;
             lbTenSP.Text = tensp;
             lbSoLuong.Text = soluong.ToString();
-            lbDonGia.Text = convertGia(dongia);
-            lbTongCong.Text = convertGia((soluong * dongia));
+            lbDonGia.Text = "x" + cn.convertGia(dongia);
+            lbTongCong.Text = cn.convertGia(tongTien);
         }
 
-        public string convertGia(int giasp)
-        {
-            string gia = giasp.ToString();
-            string newgia = " đ";
-            int count = 0;
-
-            for (int i = gia.Length - 1; i >= 0; i--)
-            {
-                if (count == 3)
-                {
-                    newgia = String.Concat(",", newgia);
-                    count = 0;
-                }
-                newgia = String.Concat(gia[i], newgia);
-                count++;
-            }
-            return newgia;
-        }
+ 
     }
 }

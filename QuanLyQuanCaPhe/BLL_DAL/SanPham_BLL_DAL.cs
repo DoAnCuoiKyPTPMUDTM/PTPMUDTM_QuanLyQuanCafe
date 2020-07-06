@@ -14,6 +14,11 @@ namespace BLL_DAL
 
         }
 
+        public List<QL_SanPham> layTatCaSanPham()
+        {
+            return qlcf.QL_SanPhams.Select(t => t).ToList<QL_SanPham>();
+        }      
+
         public List<QL_SanPham> laySanPham(string maloai)
         {
             return qlcf.QL_SanPhams.Where(t => t.MaLoaiSP == maloai).ToList<QL_SanPham>();

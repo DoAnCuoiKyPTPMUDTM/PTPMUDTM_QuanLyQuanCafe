@@ -41,15 +41,15 @@
             this.lbSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSoLuong.Location = new System.Drawing.Point(3, 24);
             this.lbSoLuong.Name = "lbSoLuong";
-            this.lbSoLuong.Size = new System.Drawing.Size(112, 25);
+            this.lbSoLuong.Size = new System.Drawing.Size(25, 25);
             this.lbSoLuong.TabIndex = 0;
-            this.lbSoLuong.Text = "Số Lượng";
+            this.lbSoLuong.Text = "1";
             // 
             // lbTenSP
             // 
             this.lbTenSP.AutoSize = true;
             this.lbTenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenSP.Location = new System.Drawing.Point(113, 9);
+            this.lbTenSP.Location = new System.Drawing.Point(34, 10);
             this.lbTenSP.Name = "lbTenSP";
             this.lbTenSP.Size = new System.Drawing.Size(136, 24);
             this.lbTenSP.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             this.lbMaSP.AutoSize = true;
             this.lbMaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaSP.Location = new System.Drawing.Point(113, 49);
+            this.lbMaSP.Location = new System.Drawing.Point(34, 49);
             this.lbMaSP.Name = "lbMaSP";
             this.lbMaSP.Size = new System.Drawing.Size(128, 24);
             this.lbMaSP.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.lbDonGia.AutoSize = true;
             this.lbDonGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDonGia.Location = new System.Drawing.Point(274, 24);
+            this.lbDonGia.Location = new System.Drawing.Point(211, 24);
             this.lbDonGia.Name = "lbDonGia";
             this.lbDonGia.Size = new System.Drawing.Size(90, 25);
             this.lbDonGia.TabIndex = 3;
@@ -79,7 +79,7 @@
             // 
             this.lbTongCong.AutoSize = true;
             this.lbTongCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongCong.Location = new System.Drawing.Point(398, 24);
+            this.lbTongCong.Location = new System.Drawing.Point(335, 24);
             this.lbTongCong.Name = "lbTongCong";
             this.lbTongCong.Size = new System.Drawing.Size(100, 25);
             this.lbTongCong.TabIndex = 4;
@@ -95,7 +95,7 @@
             this.Controls.Add(this.lbTenSP);
             this.Controls.Add(this.lbSoLuong);
             this.Name = "ctrl_HoaDon";
-            this.Size = new System.Drawing.Size(517, 94);
+            this.Size = new System.Drawing.Size(470, 94);
             this.ResumeLayout(false);
             this.PerformLayout();
 

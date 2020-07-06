@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucNang.cs" />
     <Compile Include="ctrl_HienThiSanPham.cs">
       <SubType>UserControl</SubType>
     </Compile>
